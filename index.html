@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão e Conformidade - Vale Transporte</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .section-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .section-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .tab-active {
+            border-bottom: 2px solid #ea1d2c;
+            color: #ea1d2c;
+        }
+        .badge {
+            padding: 2px 8px;
+            border-radius: 9999px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="bg-red-600 p-2 rounded-lg shadow-lg shadow-red-200">
+                    <i data-lucide="bus" class="text-white w-6 h-6"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-tight">Gestão de Benefícios</h1>
+                    <p class="text-xs text-slate-500 uppercase font-semibold tracking-wider italic">Projeto de Conformidade Vale Transporte</p>
+                </div>
+            </div>
+            <div class="text-right hidden sm:block">
+                <span class="text-sm font-medium text-slate-500 italic">Documento Estratégico</span>
+                <p class="text-xs text-slate-400 font-mono">ID: VT-2024-V2</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-8">
+        
+        <!-- Navigation Tabs -->
+        <div class="flex flex-wrap gap-x-8 gap-y-4 border-b border-slate-200 mb-8 overflow-x-auto">
+            <button onclick="switchTab('diagnostico')" id="tab-diagnostico" class="pb-4 font-semibold transition-all tab-active whitespace-nowrap">
+                1. Diagnóstico & Auditoria
+            </button>
+            <button onclick="switchTab('cenario1')" id="tab-cenario1" class="pb-4 font-semibold text-slate-500 hover:text-slate-700 transition-all whitespace-nowrap">
+                2. Cenário 1 (Abordagem Pedagógica)
+            </button>
+            <button onclick="switchTab('cenario2')" id="tab-cenario2" class="pb-4 font-semibold text-slate-500 hover:text-slate-700 transition-all whitespace-nowrap">
+                3. Cenário 2 (Implantar Beneo)
+            </button>
+        </div>
+
+        <!-- SECTION 1: DIAGNÓSTICO -->
+        <div id="content-diagnostico" class="space-y-8 animate-in fade-in duration-500">
+            <!-- Resumo Executivo -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 section-card shadow-sm">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="bg-amber-100 p-2 rounded-lg">
+                            <i data-lucide="alert-triangle" class="text-amber-600 w-5 h-5"></i>
+                        </div>
+                        <span class="badge bg-amber-100 text-amber-700">Risco Crítico</span>
+                    </div>
+                    <p class="text-sm text-slate-500 font-medium mb-1">Uso Inadequado (0-10%)</p>
+                    <p class="text-4xl font-extrabold text-slate-900">334</p>
+                    <p class="text-xs text-slate-400 mt-2">Colaboradores com benefício ativo sem uso efetivo.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 section-card shadow-sm">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="bg-emerald-100 p-2 rounded-lg">
+                            <i data-lucide="check-circle" class="text-emerald-600 w-5 h-5"></i>
+                        </div>
+                        <span class="badge bg-emerald-100 text-emerald-700">Conformidade</span>
+                    </div>
+                    <p class="text-sm text-slate-500 font-medium mb-1">Uso Adequado</p>
+                    <p class="text-4xl font-extrabold text-slate-900">07</p>
+                    <p class="text-xs text-slate-400 mt-2">Colaboradores utilizando o benefício conforme a regra.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 section-card shadow-sm">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="bg-blue-100 p-2 rounded-lg">
+                            <i data-lucide="map-pin" class="text-blue-600 w-5 h-5"></i>
+                        </div>
+                        <span class="badge bg-blue-100 text-blue-700">Operacional</span>
+                    </div>
+                    <p class="text-sm text-slate-500 font-medium mb-1">Roteirização Correta</p>
+                    <p class="text-4xl font-extrabold text-slate-900">~30</p>
+                    <p class="text-xs text-slate-400 mt-2">Pessoas com rotas devidamente validadas.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-2xl border border-slate-200">
+                    <h2 class="text-lg font-bold mb-6 flex items-center gap-2">
+                        <i data-lucide="search" class="text-red-600"></i> Pontos de Auditoria
+                    </h2>
+                    <ul class="space-y-4">
+                        <li class="flex gap-4">
+                            <div class="bg-red-50 p-2 rounded-full h-fit"><i data-lucide="shield-alert" class="w-4 h-4 text-red-600"></i></div>
+                            <span class="text-sm text-slate-600 leading-relaxed"><strong>Desvio de Finalidade:</strong> O saldo em "mobilidade" permite gastos com combustível e aplicativos, o que é vedado por lei para o VT.</span>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="bg-red-50 p-2 rounded-full h-fit"><i data-lucide="lock" class="w-4 h-4 text-red-600"></i></div>
+                            <span class="text-sm text-slate-600 leading-relaxed"><strong>Bloqueios Insuficientes:</strong> As travas atuais contra transferências para saldo livre possuem brechas técnicas.</span>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="bg-slate-100 p-2 rounded-full h-fit"><i data-lucide="credit-card" class="w-4 h-4 text-slate-600"></i></div>
+                            <span class="text-sm text-slate-600 leading-relaxed"><strong>Operadoras TOP/BEM:</strong> A falta de aceitação via crédito direto obriga a manutenção de fluxos com "saldo livre".</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-900 text-white p-8 rounded-2xl shadow-xl">
+                    <h2 class="text-lg font-bold mb-6 flex items-center gap-2 text-red-400">
+                        <i data-lucide="scale"></i> Riscos Legais & Tributários
+                    </h2>
+                    <div class="space-y-5 text-sm">
+                        <div class="border-b border-slate-700 pb-3">
+                            <p class="font-bold text-white mb-1">Salário Indireto (Indirect Salary)</p>
+                            <p class="text-slate-400">O pagamento em dinheiro ou saldo livre pode ser interpretado como remuneração, incidindo INSS, FGTS e IRRF sobre todo o histórico.</p>
+                        </div>
+                        <div class="border-b border-slate-700 pb-3">
+                            <p class="font-bold text-white mb-1">Passivo Trabalhista</p>
+                            <p class="text-slate-400">Risco de incorporação salarial e multas por desvio de finalidade legal do benefício (Lei 7.418/85).</p>
+                        </div>
+                        <div class="bg-red-900/30 border-l-4 border-red-500 p-4 rounded-r-lg">
+                            <p class="text-red-200 font-semibold italic">"É indispensável a validação jurídica antes de qualquer alteração que reduza o benefício sem a devida fundamentação pedagógica anterior."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 2: CENÁRIO 1 -->
+        <div id="content-cenario1" class="hidden space-y-8 animate-in slide-in-from-right duration-500">
+            <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-md">
+                <div class="bg-gradient-to-r from-red-600 to-red-800 p-10 text-white relative">
+                    <div class="relative z-10">
+                        <h2 class="text-3xl font-bold mb-3">Cenário 1: Modelo Pedagógico</h2>
+                        <p class="text-red-100 max-w-2xl">Manutenção da ferramenta atual (iFood Benefícios) com foco em educação, readequação de roteiros e conformidade voluntária.</p>
+                    </div>
+                    <i data-lucide="graduation-cap" class="absolute right-10 top-1/2 -translate-y-1/2 w-32 h-32 text-white/10"></i>
+                </div>
+
+                <div class="p-8">
+                    <h3 class="text-xl font-bold mb-8 text-slate-800 border-b border-slate-100 pb-4">Manual de Uso do VT no iFood</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                        <div class="space-y-4">
+                            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 h-full">
+                                <span class="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mb-4">1</span>
+                                <h4 class="font-bold mb-2">Sinalização de Dias</h4>
+                                <p class="text-sm text-slate-500">O colaborador informa no sistema quantos dias por semana irá presencialmente ao escritório.</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 h-full">
+                                <span class="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mb-4">2</span>
+                                <h4 class="font-bold mb-2">Crédito iFood Benefícios</h4>
+                                <p class="text-sm text-slate-500">O valor é creditado mensalmente no módulo de mobilidade ou saldo livre do cartão atual.</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 h-full">
+                                <span class="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mb-4">3</span>
+                                <h4 class="font-bold mb-2">Compra Autônoma</h4>
+                                <p class="text-sm text-slate-500">Cada pessoa é responsável por comprar suas passagens e bilhetes nas operadoras (SPTrans, EMTU, etc).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-50 border-2 border-amber-200 rounded-3xl p-8 relative overflow-hidden">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="bg-amber-600 p-2 rounded-lg text-white">
+                                <i data-lucide="mail"></i>
+                            </div>
+                            <h4 class="font-bold text-amber-900">Estratégia de Comunicação Pedagógica</h4>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                            <div class="space-y-4">
+                                <p class="text-sm text-amber-800 leading-relaxed">
+                                    Para os colaboradores com <strong>baixo uso identificado</strong>, enviaremos uma mensagem educativa personalizada. O objetivo é ajustar a expectativa sem medidas punitivas imediatas.
+                                </p>
+                                <div class="flex items-center gap-3 text-xs font-bold text-amber-700 uppercase tracking-widest">
+                                    <i data-lucide="chevron-right" class="w-4 h-4"></i> Modelo de Mensagem
+                                </div>
+                            </div>
+                            <div class="bg-white border border-amber-200 p-6 rounded-2xl shadow-sm italic text-sm text-slate-600 relative">
+                                <i data-lucide="quote" class="absolute -top-4 -left-2 text-amber-200 w-10 h-10"></i>
+                                "Olá, <strong>[Nome]</strong>! Realizamos um acompanhamento dos benefícios e notamos que seu saldo de VT está superior aos dias de frequência registrados.<br><br>
+                                Gostaríamos de lembrar que o VT é exclusivo para o trajeto <strong>Casa x Escritório x Casa</strong> em transporte público. Pedimos que valide seus dias presenciais no sistema para que o crédito seja ajustado à sua necessidade real."
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3: CENÁRIO 2 -->
+        <div id="content-cenario2" class="hidden space-y-8 animate-in slide-in-from-right duration-500">
+            <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-md">
+                <div class="bg-gradient-to-r from-blue-600 to-indigo-800 p-10 text-white flex justify-between items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold mb-3">Cenário 2: Implementação Beneo</h2>
+                        <p class="text-blue-100 max-w-2xl">Transição para o modelo tradicional de roteirização automatizada e gestão via cartões de operadoras.</p>
+                    </div>
+                    <div class="hidden md:block opacity-20">
+                        <i data-lucide="layers" class="w-24 h-24"></i>
+                    </div>
+                </div>
+
+                <div class="p-8">
+                    <!-- Parceria Arista -->
+                    <div class="flex flex-col md:flex-row gap-8 mb-12">
+                        <div class="md:w-1/3 bg-blue-50 p-6 rounded-2xl border border-blue-100">
+                            <h4 class="font-bold text-blue-900 mb-4 flex items-center gap-2">
+                                <i data-lucide="handshake"></i> Parceria Estratégica
+                            </h4>
+                            <p class="text-sm text-blue-800 mb-4 leading-relaxed">
+                                A <strong>Beneo</strong> pertence ao grupo <strong>Arista (RH Digital)</strong>, consolidando-se como uma parceira natural para evolução tecnológica do nosso RH.
+                            </p>
+                            <div class="bg-white p-4 rounded-xl text-xs font-semibold text-blue-600 border border-blue-200 text-center">
+                                Grupo Arista & iFood
+                            </div>
+                        </div>
+                        <div class="md:w-2/3">
+                            <h4 class="font-bold text-slate-800 mb-6">O que muda na prática?</h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="flex gap-4 p-4 border border-slate-100 rounded-xl">
+                                    <i data-lucide="refresh-cw" class="w-6 h-6 text-indigo-500 shrink-0"></i>
+                                    <div>
+                                        <p class="font-bold text-sm">Fim da Compra Manual</p>
+                                        <p class="text-xs text-slate-500">O colaborador não precisa mais comprar passagens pelo app iFood.</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 p-4 border border-slate-100 rounded-xl">
+                                    <i data-lucide="shield-check" class="w-6 h-6 text-emerald-500 shrink-0"></i>
+                                    <div>
+                                        <p class="font-bold text-sm">Roteirização Direta</p>
+                                        <p class="text-xs text-slate-500">Crédito automatizado direto nos cartões das operadoras (ex: Bilhete Único).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Comparativo -->
+                    <div class="overflow-hidden rounded-2xl border border-slate-200 mb-8">
+                        <table class="w-full text-left text-sm">
+                            <thead class="bg-slate-50 text-slate-500 font-bold uppercase text-xs">
+                                <tr>
+                                    <th class="px-6 py-4">Funcionalidade</th>
+                                    <th class="px-6 py-4">Modelo Atual</th>
+                                    <th class="px-6 py-4 text-indigo-600">Modelo Beneo</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100">
+                                <tr>
+                                    <td class="px-6 py-4 font-medium">Gestão do Saldo</td>
+                                    <td class="px-6 py-4">Interna (iFood Benefícios)</td>
+                                    <td class="px-6 py-4 text-indigo-700 font-medium">Externa (Operadoras/Beneo)</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 font-medium">Flexibilidade de Uso</td>
+                                    <td class="px-6 py-4">Alta (Risco de desvio)</td>
+                                    <td class="px-6 py-4 text-indigo-700 font-medium">Restrita (Garante finalidade)</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 font-medium">Automação</td>
+                                    <td class="px-6 py-4 text-red-500">Baixa (Depende do colaborador)</td>
+                                    <td class="px-6 py-4 text-emerald-600 font-medium">Total (Roteirização Técnica)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Ponto de Atenção -->
+                    <div class="bg-slate-900 p-8 rounded-2xl border border-slate-700">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-amber-500 p-2 rounded-lg text-slate-900">
+                                <i data-lucide="octagon-alert" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-2">Ponto Crítico de Decisão</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                                    Ao implementar o Beneo, deixamos de ter o saldo circulando em nossa ferramenta interna (iFood Benefícios). Isso significa uma perda de visibilidade imediata no nosso app, mas elimina 100% dos riscos regulatórios de "salário indireto".
+                                </p>
+                                <div class="flex gap-4">
+                                    <span class="inline-flex items-center gap-2 text-xs text-slate-500"><i data-lucide="check" class="w-3 h-3"></i> Menos Risco Legal</span>
+                                    <span class="inline-flex items-center gap-2 text-xs text-slate-500"><i data-lucide="check" class="w-3 h-3"></i> Mais Eficiência RH</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-12 text-center text-slate-400 text-xs pb-12">
+            <p>© 2024 iFood - Relatório para Tomada de Decisão Estratégica</p>
+            <p class="mt-2 flex items-center justify-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-red-600"></span> 
+                Confidencial
+            </p>
+        </footer>
+    </main>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Tab Switching Logic
+        function switchTab(tab) {
+            const tabs = ['diagnostico', 'cenario1', 'cenario2'];
+            
+            tabs.forEach(t => {
+                const tabBtn = document.getElementById(`tab-${t}`);
+                const tabContent = document.getElementById(`content-${t}`);
+                
+                if (t === tab) {
+                    tabBtn.classList.add('tab-active');
+                    tabBtn.classList.remove('text-slate-500');
+                    tabContent.classList.remove('hidden');
+                } else {
+                    tabBtn.classList.remove('tab-active');
+                    tabBtn.classList.add('text-slate-500');
+                    tabContent.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
